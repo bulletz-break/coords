@@ -1,11 +1,11 @@
-alert("@version 1.0.6");
+alert("@version 1.0.7");
 // Latitude     : 11, 22
 // Sentido Lat  : 23, 24
 // Longitude    : 25, 37
 // Sentido Long : 38, 39
 // Altitude     : 56, 61
 
-const PADRAO_ALTI       = 627;
+const PADRAO_ALTI       = 605.6;
 const COMPENSACAO_LAT   = 13.7;
 const COMPENSACAO_LOG   = 9.9;
 

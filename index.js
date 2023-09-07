@@ -1,4 +1,4 @@
-console.log("@version 1.0.1");
+console.log("@version 1.0.2");
 // Latitude     : 11, 22
 // Sentido Lat  : 23, 24
 // Longitude    : 25, 37
@@ -25,7 +25,7 @@ function give_formatted_coords(coords) {
     longitude_sense     = String(coords).substring(38, 39);
 
     COMPENSACAO_LAT = altitude / 51;
-    COMPENSACAO_LOG = 9.9 / 64;
+    COMPENSACAO_LOG = altitude / 63;
 
     // latitude_result     = `${latitude_dd}°${latitude_mm}'${parseFloat(String(latitude_mmmmmm).substring(0, 2)) - (COMPENSACAO_LAT - 1.1)}${String(latitude_mmmmmm).substring(2)}"S`;
     // longitude_result    = `${longitude_dd}°${longitude_mm}'${parseFloat(String(longitude_mmmmmm).substring(0, 2)) - (COMPENSACAO_LOG - 1)}${String(longitude_mmmmmm).substring(2)}"W`;

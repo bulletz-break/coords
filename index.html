@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> A22 - Converter Coordenadas LilyGo </title>
+    <style>
+        #convert {
+            width: 80%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid red;
+            flex-direction: column;
+        }
+
+        #convert_title {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 2em;
+            display: flex;
+        }
+
+        .convert_input {
+            margin: 2% 0;
+            padding: 0.5% 2%;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        p {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            letter-spacing: 0.6px;
+            padding: 1%;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <article id="convert">
+            <section id="convert_title">
+                <h1> Converter Coordenadas da Lilygo </h1>
+            </section>
+            <!-- Latitude -->
+            <input type="text" class="convert_input" id="convert_lat" placeholder="Insira a Latitude"/>
+            <p id="convert_result">
+
+            </p>
+        </article>
+        <script src="index.js"></script>
+    </main>
+</body>
+</html>

@@ -1,4 +1,4 @@
-console.log("@version 1.0.3");
+alert("@version 1.0.4");
 // Latitude     : 11, 22
 // Sentido Lat  : 23, 24
 // Longitude    : 25, 37

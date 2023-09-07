@@ -1,13 +1,13 @@
-console.log("@version 1.0.2");
+console.log("@version 1.0.3");
 // Latitude     : 11, 22
 // Sentido Lat  : 23, 24
 // Longitude    : 25, 37
 // Sentido Long : 38, 39
 // Altitude     : 56, 61
 
-const PADRAO_ALTI       = 632.0;
-// const COMPENSACAO_LAT   = 0.0;
-// const COMPENSACAO_LOG   = 0.0;
+const PADRAO_ALTI       = 627;
+const COMPENSACAO_LAT   = 13.7;
+const COMPENSACAO_LOG   = 9.9;
 
 function give_formatted_coords(coords) {
     let result  = document.querySelector("#convert_result");
@@ -24,13 +24,13 @@ function give_formatted_coords(coords) {
     longitude_mmmmmm    = String(coords).substring(31, 37);
     longitude_sense     = String(coords).substring(38, 39);
 
-    COMPENSACAO_LAT = altitude / 51;
-    COMPENSACAO_LOG = altitude / 63;
+    latitude = (COMPENSACAO_LAT * altitude) / PADRAO_ALTI;
+    longitude = (COMPENSACAO_LOG * altitude) / PADRAO_ALTI;
 
     // latitude_result     = `${latitude_dd}°${latitude_mm}'${parseFloat(String(latitude_mmmmmm).substring(0, 2)) - (COMPENSACAO_LAT - 1.1)}${String(latitude_mmmmmm).substring(2)}"S`;
     // longitude_result    = `${longitude_dd}°${longitude_mm}'${parseFloat(String(longitude_mmmmmm).substring(0, 2)) - (COMPENSACAO_LOG - 1)}${String(longitude_mmmmmm).substring(2)}"W`;
-    latitude_result     = `${latitude_dd}°${latitude_mm}'${parseInt(String(latitude_mmmmmm).substring(0, 2)) - COMPENSACAO_LAT}"S`;
-    longitude_result    = `${longitude_dd}°${longitude_mm}'${parseInt(String(longitude_mmmmmm).substring(0, 2)) - COMPENSACAO_LOG}"W`;
+    latitude_result     = `${latitude_dd}°${latitude_mm}'${parseInt(String(latitude_mmmmmm).substring(0, 2)) - latitude}"S`;
+    longitude_result    = `${longitude_dd}°${longitude_mm}'${parseInt(String(longitude_mmmmmm).substring(0, 2)) - longitude}"W`;
 
     // +CGPSINFO: 2313.310554,S,04554.274640,W,070923,155319.0,627.1,0.0 => No escritório
     // +CGPSINFO: 2313.281960,S,04554.277514,W,070923,155532.0,614.2,0.0 => Primeiro andar

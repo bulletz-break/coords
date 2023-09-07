@@ -1,4 +1,4 @@
-alert("@version 1.0.4");
+alert("@version 1.0.5");
 // Latitude     : 11, 22
 // Sentido Lat  : 23, 24
 // Longitude    : 25, 37
@@ -24,12 +24,14 @@ function give_formatted_coords(coords) {
     longitude_mmmmmm    = String(coords).substring(31, 37);
     longitude_sense     = String(coords).substring(38, 39);
 
-    latitude = (COMPENSACAO_LAT * altitude) / PADRAO_ALTI;
-    longitude = (COMPENSACAO_LOG * altitude) / PADRAO_ALTI;
+    latitude = parseFloat((COMPENSACAO_LAT * altitude) / PADRAO_ALTI);
+    longitude = parseFloat((COMPENSACAO_LOG * altitude) / PADRAO_ALTI);
 
     // latitude_result     = `${latitude_dd}°${latitude_mm}'${parseFloat(String(latitude_mmmmmm).substring(0, 2)) - (COMPENSACAO_LAT - 1.1)}${String(latitude_mmmmmm).substring(2)}"S`;
     // longitude_result    = `${longitude_dd}°${longitude_mm}'${parseFloat(String(longitude_mmmmmm).substring(0, 2)) - (COMPENSACAO_LOG - 1)}${String(longitude_mmmmmm).substring(2)}"W`;
-    latitude_result     = `${latitude_dd}°${latitude_mm}'${parseInt(String(latitude_mmmmmm).substring(0, 2)) - latitude}"S`;
+    console.log("latitude: " + latitude.toFixed(1));
+    console.log("longitude: " + longitude.toFixed(1));
+    latitude_result     = `${latitude_dd}°${latitude_mm}'${(parseInt(String(latitude_mmmmmm).substring(0, 2)) - latitude) + 1}"S`;    
     longitude_result    = `${longitude_dd}°${longitude_mm}'${parseInt(String(longitude_mmmmmm).substring(0, 2)) - longitude}"W`;
 
     // +CGPSINFO: 2313.310554,S,04554.274640,W,070923,155319.0,627.1,0.0 => No escritório

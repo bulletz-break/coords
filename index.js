@@ -19,10 +19,14 @@ function give_formatted_coords(coords) {
     longitude_mmmmmm    = String(coords).substring(31, 37);
     longitude_sense     = String(coords).substring(38, 39);
 
-    latitude_result     = `${latitude_dd}°${latitude_mm}'${parseFloat(String(latitude_mmmmmm).substring(0, 2)) - (COMPENSACAO_LAT - 1.1)}${String(latitude_mmmmmm).substring(2)}"S`;
-    longitude_result    = `${longitude_dd}°${longitude_mm}'${parseFloat(String(longitude_mmmmmm).substring(0, 2)) - (COMPENSACAO_LOG - 1)}${String(longitude_mmmmmm).substring(2)}"W`;
-    // latitude_result     = `${latitude_dd}°${latitude_mm}'${parseInt(String(latitude_mmmmmm).substring(0, 2)) - 13.7}"S`;
-    // longitude_result    = `${longitude_dd}°${longitude_mm}'${parseInt(String(longitude_mmmmmm).substring(0, 2)) - 9.9}"W`;
+    // latitude_result     = `${latitude_dd}°${latitude_mm}'${parseFloat(String(latitude_mmmmmm).substring(0, 2)) - (COMPENSACAO_LAT - 1.1)}${String(latitude_mmmmmm).substring(2)}"S`;
+    // longitude_result    = `${longitude_dd}°${longitude_mm}'${parseFloat(String(longitude_mmmmmm).substring(0, 2)) - (COMPENSACAO_LOG - 1)}${String(longitude_mmmmmm).substring(2)}"W`;
+    latitude_result     = `${latitude_dd}°${latitude_mm}'${parseInt(String(latitude_mmmmmm).substring(0, 2)) - COMPENSACAO_LAT}"S`;
+    longitude_result    = `${longitude_dd}°${longitude_mm}'${parseInt(String(longitude_mmmmmm).substring(0, 2)) - COMPENSACAO_LOG}"W`;
+
+    //            | Latitude |
+    // +CGPSINFO: 2313.310554,S,04554.274640,W,070923,155319.0,627.1,0.0 => No escritório
+    // +CGPSINFO: 2313.281960,S,04554.277514,W,070923,155532.0,614.2,0.0 => Primeiro andar
 
     // 23°13'16.37896"S 45°54'16.18686"W
     // 23°13'16.3"S 45°54'16.1"W

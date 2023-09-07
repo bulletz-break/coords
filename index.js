@@ -1,4 +1,4 @@
-alert("@version 1.0.5");
+alert("@version 1.0.6");
 // Latitude     : 11, 22
 // Sentido Lat  : 23, 24
 // Longitude    : 25, 37
@@ -32,7 +32,7 @@ function give_formatted_coords(coords) {
     console.log("latitude: " + latitude.toFixed(1));
     console.log("longitude: " + longitude.toFixed(1));
     latitude_result     = `${latitude_dd}°${latitude_mm}'${(parseInt(String(latitude_mmmmmm).substring(0, 2)) - latitude) + 1}"S`;    
-    longitude_result    = `${longitude_dd}°${longitude_mm}'${parseInt(String(longitude_mmmmmm).substring(0, 2)) - longitude}"W`;
+    longitude_result    = `${longitude_dd}°${longitude_mm}'${(parseInt(String(longitude_mmmmmm).substring(0, 2)) - longitude) + 0.5}"W`;
 
     // +CGPSINFO: 2313.310554,S,04554.274640,W,070923,155319.0,627.1,0.0 => No escritório
     // +CGPSINFO: 2313.281960,S,04554.277514,W,070923,155532.0,614.2,0.0 => Primeiro andar

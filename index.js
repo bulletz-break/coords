@@ -7,6 +7,7 @@ const COMPENSACAO_LAT   = 13.7;
 const COMPENSACAO_LOG   = 9.9;
 
 function give_formatted_coords(coords) {
+    console.log("Calculando");
     let result  = document.querySelector("#convert_result");
 
     latitude_dd         = String(coords).substring(11, 13);
